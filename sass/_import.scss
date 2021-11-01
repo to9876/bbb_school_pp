@@ -1,0 +1,25 @@
+// 変数まとめ
+$color-white: #ffffff;
+$color-red: #ff2a2a;
+$color-red-btn-top: #ff0033;
+$color-blue: #e9f1fb;
+$color-gray-face: #cccccc;
+$color-gray-bg: #e8e8e8;
+$color-black: #333333;
+
+
+// レスポンシブまとめ
+// 変数「set-breakpoints」でブレイクポイントを定義
+$set-breakpoints: (
+  md: 900px,
+);
+
+// メディアクエリのmixin
+@mixin min-mq($breakpoint: md) {
+  @media screen and (min-width: #{map-get($set-breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+// その他mixin
+// アウトラインセクション

@@ -1,0 +1,39 @@
+//ブレイクポイント
+// $breakpoints: (
+//   sm: 600,
+//   md: 768,
+//   lg: 1024,
+//   xl: 1440,
+// );
+
+// 変数「set-breakpoints」を定義
+$set-breakpoints: (
+  sm: 600px,
+  md: 900px,
+);
+
+//メディアクエリー
+// $mediaquerys: (
+//   sm: "screen and (min-width: #{map-get($breakpoints,'sm')}px)",
+//   md: "screen and (min-width: #{map-get($breakpoints,'md')}px)",
+//   lg: "screen and (min-width: #{map-get($breakpoints,'lg')}px)",
+//   xl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
+// );
+
+// ミックスイン「min-mq」を定義（初期値をmdとする）
+// ミックスインの中身を記述（今回はメディアクエリ）
+// min-widthの値を「#{map-get($map, $key)})」で取得
+// $mapはmap形式の変数（今回は「$set-breakpoints」）
+// $keyは値に対応するkey（今回は「$breakpoint（初期値：md）」）
+
+@mixin min-mq($breakpoint: md) {
+  @media screen and (min-width: #{map-get($set-breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+// @mixin min-mq($breakpoint: 797px) {
+//   @media screen and (min-width: $breakpoint) {
+//     @content;
+//   }
+// }
